@@ -73,7 +73,7 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-  .connect('mongodb+srv://iifawzie:12qwaszx12@cluster0-wbhy5.mongodb.net/messages')
+  .connect('mongodb+srv://:@cluster0-wbhy5.mongodb.net/messages')
   .then(result => {
     app.listen(3007);
   })
