@@ -38,9 +38,17 @@ input postInputData {
     imageUrl: String!
 }
 
+input editPostData {
+    id: ID!
+    title: String!
+    content: String!
+    imageUrl: String!
+}
+
     type RootMutation {
         createUser(userInput: UserInputData): User!
         createPost(postInput: postInputData): Post!
+        editPost(editPostInput: editPostData): Post!
     }
     type rootQuery { 
         login(loginInput: signinInputData): User!

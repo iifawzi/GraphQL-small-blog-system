@@ -118,5 +118,25 @@ return {
       return {
           ...post._doc,
       }
+    },
+    editPost: async function ({editPostInput},args){
+        const id = editPostInput.id;
+        const title = editPostInput.title;
+        const content = editPostInput.content;
+        const imageUrl = editPostInput.imageUrl;
+        const post = await Post.findById(id);
+        if (!post){
+            const error = new Error('Post not found');
+            error.code = 404;
+            throw error;
+        }
+        post.title = title;
+        post.content = content;
+        post.imageUrl = imageUrl;
+        const editedPost = await post.save();
+        return {
+            ...editedPost._doc,
+        }
+
     }
 }
