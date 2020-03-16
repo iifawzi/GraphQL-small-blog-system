@@ -45,6 +45,7 @@ input postInputData {
     type rootQuery { 
         login(loginInput: signinInputData): User!
         getPosts: [Post!]!
+        getSingelPost(postId: ID!): Post!
     }
 
     schema {

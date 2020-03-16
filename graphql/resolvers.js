@@ -112,5 +112,11 @@ return {
              return {...p._doc}
          })
       )
+    },
+    getSingelPost : async function({postId},req){
+      const post = await Post.findById(postId);
+      return {
+          ...post._doc,
+      }
     }
 }
