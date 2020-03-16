@@ -103,7 +103,14 @@ return {
         await user.save()
         return {
 ...createdPost._doc
-        }
-        
+        }   
+    },
+    getPosts : async function(){
+      const posts =  await Post.find()
+      return (
+        posts.map(p=>{
+             return {...p._doc}
+         })
+      )
     }
 }
