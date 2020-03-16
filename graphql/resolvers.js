@@ -3,6 +3,7 @@ const Post = require('../models/post');
 const bcrypt = require('bcrypt');
 const validator = require('validator');
 const jwt = require('jsonwebtoken');
+const mongoose = require("mongoose");
 module.exports = {
     createUser: async function({userInput},req){
         const email = userInput.email;
@@ -138,5 +139,12 @@ return {
             ...editedPost._doc,
         }
 
+    },
+    deleteingPost: async function({postId}){
+        const id = mongoose.Types.ObjectId(postId)
+       const deletedPost = await Post.deleteOne({_id: id});
+       return {
+           ...deletedPost._doc,
+       }
     }
 }

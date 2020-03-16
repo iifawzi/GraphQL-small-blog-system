@@ -49,6 +49,7 @@ input editPostData {
         createUser(userInput: UserInputData): User!
         createPost(postInput: postInputData): Post!
         editPost(editPostInput: editPostData): Post!
+        deleteingPost(postId: ID!): Post!
     }
     type rootQuery { 
         login(loginInput: signinInputData): User!
